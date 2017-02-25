@@ -2,6 +2,8 @@ package Ejercicio2;
 import becker.robots.*;
 public class Ejercicio2 {
     public  Robot joe;
+    public  Robot afk;
+    public  Robot troll;
     public  City unal;
     public  Thing num;   
     public Ejercicio2(){
@@ -29,6 +31,8 @@ for(int i=1;i<4;i++){
         this.num =new Thing(this.unal, 3,6);
       
  this.joe = new Robot(unal,5,1, Direction.NORTH);
+ this.afk = new Robot(unal,5,4, Direction.NORTH);
+ this.troll = new Robot(unal,5,7, Direction.NORTH);
  
 
         for(int i=0;i<5;i++){
@@ -57,23 +61,49 @@ for(int i=1;i<4;i++){
            
     }
     public void advance(){
-        this.joe.move();
-        
+        this.joe.move();        
     }
     public void advanceLeft(){
-        joe.turnLeft();
-        
+        joe.turnLeft();      
     }
 
     void advanceRigth() {
       joe.turnLeft();
       joe.turnLeft();
-      joe.turnLeft();
-      
-      
+      joe.turnLeft(); 
     }
     void recoger(){
-            joe.pickThing();
+      joe.pickThing();
+    }
+     public void advance2(){
+        this.troll.move();        
+    }
+    public void advanceLeft2(){
+        troll.turnLeft();      
+    }
+
+    void advanceRigth2() {
+      troll.turnLeft();
+      troll.turnLeft();
+      troll.turnLeft(); 
+    }
+    void recoger2(){
+      troll.pickThing();
+    }
+     public void advance3(){
+        this.afk.move();        
+    }
+    public void advanceLeft3(){
+        afk.turnLeft();      
+    }
+
+    void advanceRigth3() {
+      afk.turnLeft();
+      afk.turnLeft();
+      afk.turnLeft(); 
+    }
+    void recoger3(){
+      afk.pickThing();
     }
 }
 
