@@ -1,4 +1,4 @@
-package Futbol;
+package Ejercicio1;
 import becker.robots.*;
 public class Futbol {
    public City chapeco;

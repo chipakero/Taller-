@@ -1,4 +1,4 @@
-package Futbol;
+package Ejercicio1;
 public class main {
     
      
