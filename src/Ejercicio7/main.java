@@ -4,7 +4,7 @@ package Ejercicio7;
 
 public class main {
     public static void main(String[] args){
-        Organizar a = new Organizar();
+        organizar a = new organizar();
         for(int i = 0; i<=144; i++){
             a.Recoger();
             if((a.PosicionA() == 12)&&(a.PosicionC() == 12)){
