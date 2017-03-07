@@ -80,7 +80,4 @@ public class Futbol {
        this.Messi.turnLeft();
      
     }
-    void regate(){
-        Messi.pickThing();
-    }
 }

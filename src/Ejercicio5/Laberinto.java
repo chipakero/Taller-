@@ -100,7 +100,20 @@ public class Laberinto {
             this.Basura = new Thing (this.Tierra, 4,9);
             this.Basura = new Thing (this.Tierra, 5,7);
             this.Basura = new Thing (this.Tierra, 7,6);
-         }  
-    }
-    
-
+            
+         }
+      public void Avanzar(){
+          this.Wall_e.move();  
+         }
+      public void Derecha(){
+          this.Wall_e.turnLeft(); 
+          this.Wall_e.turnLeft();
+          this.Wall_e.turnLeft();
+         }
+      public void Izquierda(){
+          this.Wall_e.turnLeft(); 
+         }
+      public void Recoger(){
+          Wall_e.pickThing();
+      }
+}

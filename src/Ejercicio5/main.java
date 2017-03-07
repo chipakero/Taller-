@@ -43,7 +43,6 @@ public class main {
                 curse.Recoger();
             }
             curse.Avanzar();
-        }
-        
+        }       
     }
 }
