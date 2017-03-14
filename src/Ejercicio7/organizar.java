@@ -1,56 +1,68 @@
-
 package Ejercicio7;
 import becker.robots.*;
-
 public class organizar {
-    private Robot Bender;
-    private City PlanetExpress;
-    private Thing Entrega;
-public organizar(Robot Bender, City PlanetExpress, Thing Entrega) {
-        this.Bender = Bender;
-        this.PlanetExpress = PlanetExpress;
-        this.Entrega = Entrega;
-    }
-public Thing getEntrega() {
-        for(int i = 0; i<10; i++){
-            for(int j = 0; j<10; j++){
-                if((i == 1)||(i==2)||(i==3)||(i==4)||(i==5)||(i==6)||(i==7)||(i==8)||(i==9)||(i==0)){
-                    this.Entrega = new Thing(PlanetExpress,i, j);
-                }
+    
+    FuncionesdeBender a = new FuncionesdeBender();
+    
+    void RecogerTodo(){
+        for(int i = 0; i<=144; i++){
+            if((a.PosicionC() == 11)&&(a.PosicionA() == 0)){
+                a.RecogerStop();
             }
-        }        
-        return Entrega;
-    }
-public organizar(){
-       this.PlanetExpress = new City(12,12);
-       this.Bender = new Robot(PlanetExpress, 0,0, Direction.EAST);
-       getEntrega();
-}
-    void Recoger(){
-        if(Bender.canPickThing()==true){
-            Bender.pickThing();
+            else{
+                if(a.PosicionA() == 11){
+                    a.GiroDerecho();
+                }
+                if((a.PosicionA() == 0)&&(a.PosicionC()!=0)){
+                    a.GiroIzquierda();
+                }
+                a.RecogerStop();
+                a.Muevete();
+            }
         }
     }
-    void Muevete(){
-        Bender.move();
+    void SpaceInvaders(){
+         for(int i = 0; i<=144; i++){
+            if((a.PosicionC() == 11)&&(a.PosicionA() == 0)){
+                a.GiroIzquierda();
+                a.GiroIzquierda();
+                a.Muevete();
+            }else 
+            if((a.PosicionC() == 0)&&(a.PosicionA() == 0)){
+                a.RecogerStop();
+                a.GiroIzquierda();
+            }else{
+                if((a.PosicionA() == 0)&&(a.PosicionC()!=11)){
+                    a.GiroDerecho();
+                }
+                if((a.PosicionA() == 11)){
+                    a.GiroIzquierda();
+                }
+                if((a.PosicionC()==8)&&((a.PosicionA()==4)||(a.PosicionA()==5)||(a.PosicionA()==7)||(a.PosicionA()==8))){
+                    a.Dejar();
+                }
+                if((a.PosicionC()==7)&&((a.PosicionA()==1)||(a.PosicionA()==3)||(a.PosicionA()==9)||(a.PosicionA()==11))){
+                    a.Dejar();
+                }
+                if((a.PosicionC()==6)&&((a.PosicionA()>=1)&&(a.PosicionA()<=11))){
+                    a.Dejar();
+                }
+                if((a.PosicionC()==5)&&((a.PosicionA()!=0)&&(a.PosicionA()!=1)&&(a.PosicionA()!=4)&&(a.PosicionA()!=8)&&(a.PosicionA()!=11))){
+                    a.Dejar();
+                }
+                if((a.PosicionC()==4)&&((a.PosicionA()>=3)&&(a.PosicionA()<=9))){
+                    a.Dejar();
+                }
+                if((a.PosicionC()==3)&&((a.PosicionA()==4)||(a.PosicionA()==8))){
+                    a.Dejar();
+                }
+                if((a.PosicionC()==2)&&((a.PosicionA()==3)||(a.PosicionA()==9))){
+                    a.Dejar();
+                }
+                a.Muevete();
+            }
+        }
     }
-    void GiroDerecho(){
-        Bender.turnLeft();
-        Bender.turnLeft();
-        Bender.turnLeft();
-    }
-    void GiroIzquierda(){
-        Bender.turnLeft();
-    }
-    void Dejar(){
-        Bender.putThing();
-    }
-    int PosicionA(){
-        int n = Bender.getAvenue();
-        return n;
-    }
-    int PosicionC(){
-        int n = Bender.getStreet();
-        return n;
-    }
-}  
+
+    
+}
